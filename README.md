@@ -1,39 +1,167 @@
+# OKFDE reloaded
 
-# volksentscheid-transparenz.de
+Statische Seite mit Hugo!
 
+## Technisches
 
-## Setup
+### Seite lokal laufen lassen
 
-You can easily do edits and preview changes on github. But if to want to preview
-your edits or do bigger changes, you need a local setup.
+Hugo installieren (Version > 0.51):
 
-For that you first need to install git, Ruby and gem.
+https://gohugo.io/getting-started/installing
 
-Then clone this repository by invoking the following in a terminal,
-presuming you know how to get there:
+Wenn du das Hugo binary manuell installierst, achte darauf die `extended` version zu nehmen, da diese auch Sass kompilieren kann
 
-```bash
-git clone https://github.com/okfde/volksentscheid-transparenz.de.git
-```
-Install Ruby and gem. Then get the dependencies:
+Developement Server laufen lassen:
 
-```bash
-sh setup.sh
+``` bash
+$ hugo serve
 ```
 
-You can now build the site and serve it:
+Dann auf `localhost:1313`  die Seite anschauen.
 
-```bash
-sh serve.sh
+### Seite deployen
+
+Ein Push zu GitHub genügt um den Buildprozess anzustoßen.
+Im Normalfall musst du dich um nichts kümmern und deine Änderungen sind in ein paar Augenblicken online.
+
+Falls das nicht passiert, findest du unten unter 'Anderes' und 'Buildprozess' mehr Infos.
+
+---
+
+## Inhalte bearbeiten
+
+### Blogpost
+
+Alle Blogposts befinden sich in `content/blog/` und nach Jahren organisiert.
+
+#### Neuer Post
+
+Ein Beispiel für einen neuen Blogpost findest du in `archetypes/post.md`.
+
+Erstelle eine neue Datei in `content/blog/<jahr>/` und kopiere die Dummydaten aus der Archetypesdatei.
+
+- `authors`: eine Liste der Autoren
+- `date`: das Veröffentlichungsdatum. Wird zur Sortierung benutzt
+- `image`: ein Bild das in Social Media Links angezeigt wird und optional bei _Featured_ (siehe unten). Bitte achte auf angemessene Bildgrößen! Ein Bild direkt von Flickr oder deiner Kamera ist in den meisten Fällen viel zu groß!
+- `tags`: eine Liste von Tags
+- `type` und `layout` für intere Sachen. Bitte nicht verändern
+- `published`: ob der Post veröffentlicht werden soll, `true` oder `false`
+- `title`: der Titel des Posts
+- `featured`: siehe unten
+
+
+#### Featured!
+
+_Featured_ ist ein neues Feature.
+
+Auf der Startseite und auf der ersten Seite des Blogs wird ein Blogpost gefeatured, d.h. groß und mit buntem Hintergrund und Bild angezeigt.
+
+Die Logik hinter _Featured_ ist, das immer der aktuellste Post, bei dem `featured` gesetzt ist, als feature erscheint. Dein POst soll nicht gefeatured werden? Lösche `featured` aus deinem Post.
+
+`featured` kann zwei Werte haben `yellow` und `blue`, die einen gelben oder blau/türkisen Hintergrund definieren.
+
+### Teammitglieder
+
+Alle Teammitglieder und Vorstände sind in `data/team.yml` zu finden.
+
+#### Neues Mitglied
+
+Um ein neues Mitglied hinzuzufügen, kopiere einen Listeneintrag (oder das leere Beispiel) und setze ihn an das Ende der Datei.
+Die folgenden Felder werden unterstützt:
+
+``` yaml
+- name:
+  title:
+  img:
+  staff: 1
+  board: 0
+  advisory: 0
+  position:
+  position_en:
+  bio:
+  bio_en:
+  mail:
+  twitter:
+  website:
+
 ```
+Die 0 und 1 werden als true und false Werte behandelt. Sprich, `staff: 1` bedeutet aktives Teammitglied, `staff: 0` bedeutet ehemaliges Teammitglied
 
-This command will give you a link where you can preview your changes in your browser.
+Die Übersetzungen der Bio und der Position sind direkt hier mit dabei.
 
-## Notes
+`img` sollte dem Namen der Bilddatei entsprechen, die du in `static/team` als `.jpg` ablegst. Bitte achte darauf keine gigantischen Bilder zu benutzen, denn Nutzer wollen nicht 2 Minuten auf ein Bild warten. 300 x 200 Pixel in guter Qualität sind absolut ausreichend.
 
- * Please use **mobile friendly filesizes** for images.
+### Projekte
 
- * You can set a teaser for texts by defining it in the frontmatter: `excerpt: "<TEXT>"`.
+Alle Projekte befinden sich unter `content/projekte`.
+Dabei hat jedes Projekt zwei Dateien, eine deutsch- (`.md`) und eine englischsprachige (`.en.md`).
 
- * The teaser  for an image can be set with `imgname-teaser: "<[RELATIVE] PATH TO IMAGE>"`.
+#### Neues Projekt
 
+Lege in `content/projekte` zwei Dateien an: `einproject.md` und `deinproject.en.md`.
+In `archetypes/project.md` findet du die Beispiel mit Felder, die ein Projekt haben kann.
+
+Hier kurz Erklärungen zu den einzelnen Feldern:
+
+- `title` ist der Name des Projektes
+- `subtitle` is die Tagline
+- `kategorien` is nur für die deutschsprachige Seite wichtig und kann auf der englischen gelöscht werden. Es soll eine Liste mit ein oder mehreren Kategorien sein, nach denen auf der Projektseite gefiltert werden kann
+- `categories` ist nur für die englischsprachige Seite wichtig und kann auf der deutschen gelöscht werden. Es soll eine Liste mit ein oder mehreren KAtegorien sein, nach denen auf der englischen Projektseite gefiltert werden kann.
+- `tile` bestimmt wie das Projekt auf der Projektübersichtsseite dargestellt wird. `Single` beschreibt eine kleine Fläche, `double` die doppelt so große. Soll ein Projekt nur unter "Weitere Projekte" gelistet werden, dann kannst du dieses Feld löschen
+- `website` die url zur Website des Projektes
+
+
+### Jobs
+
+#### Neues Jobposting
+
+
+### Vereinsstats
+
+#### Jahresberichte
+
+#### Downloads
+
+### Spenden
+
+### Finanzen
+
+#### Downloads
+
+#### Statistiken
+
+---
+
+## Anderes
+
+### Übersetzungen
+
+
+### Was ist mit package.json?
+
+Alle notwendigen externen Abhängigkeiten sind extra in js/vendor oder sass/vendor eingecheckt.
+
+Das hat den Vorteil das Menschen nicht extra Node/npm lokal installieren müssen um die Seite zu bearbeiten.
+
+Package.json dient damit eher als informative Liste, was so benutzt wird.
+
+### Suche und Suchindexe
+
+### Buildprozess
+
+
+Der Buildprozess verläuft in mehreren Stufen:
+1. der Push wird von GitHub registriert und stößt einen Build bei [Travis CI](https://travis-ci.com/okfde/okfde-reloaded) an
+  - hier wird die Seite mit Hugo gebaut
+  - zwei Nodescripte erstellen die Suchindexe (als .json) für die seitenweite und die Blogsuche
+  - (wegen dieser Scripte brauchen wir Travis, Hookay kann das nicht alleine)
+2. ist ein Travis-Build auf dem Master branch erfolgreich, pusht Travis die gebaute Seite zurück zu GitHub, aber auf den [Release branch](https://github.com/okfde/okfde-reloaded/tree/release)
+  - dieser Badge zeigt den Status des letzten Builds an [![Build Status](https://travis-ci.com/okfde/okfde-reloaded.svg?branch=master)](https://travis-ci.com/okfde/okfde-reloaded)
+  - ist der Badge rot ist schon was beim bauen der Seite schief gelaufen. Vermutlich was mit Hugo in den Templates, hier musst du debuggen!
+3. hat Travis auf den Release branch gepusht, sendet GitHub einen Webhook an [Hookay](https://lab.okfn.de/build-status/)
+  - Hookay klont den Release branch auf unseren Server und kopiert ihn an die richtige Stelle
+    - es kann sein, dass die Webhook-payload von GitHub sehr groß ist und Hookay dann einen Fehler wwirft. Das kannst du [hier](https://github.com/okfde/okfde-reloaded/settings/hooks/) (sofern du die Rechte hast) nachsehen.
+    - Ist beim letzten senden eines Webhooks was schief gelaufen (Fehler 413) dann kannst du über Hookay die Seite manuell neu bauen. Die gebaute Seite liegt ja schon bei GitHub und muss nur kopiert werden.
+
+Wenn alles geklappt hat, sind dein Änderungen jetzt online!
