@@ -5,7 +5,7 @@
   desc:
     detail: Fast 15.000 Menschen unterschreiben <a href="https://www.change.org/p/milliardenverschwendung-am-flughafen-stoppen-transparenzgesetz-f%C3%BCr-berlin">eine Petition für ein Berliner Transparenzgesetz</a>. Sie wenden sich gegen die Verschwendung von Steuergeldern beim Flughafenbau und machen sich dafür stark, dass Verträge der Daseinsvorsorge veröffentlicht werden müssen.
   date:
-    detail: Februar 2017 - Mai 2017
+    detail: Februar 2017-Mai 2017
   pict: petition
  
 - name:
@@ -27,7 +27,7 @@
 - name:
     detail: Sammeln von Unterschriften von UnterstützerInnen
   desc:
-    detail: Um einen Antrag auf ein Volksbegehren stellen zu können, müssen der Senatsverwaltung mindestens 20.000 gültige Unterschriften wahlberechtigter Berlinerinnen vorgelegt werden, die innerhalb eines Zeitraums von sechs Monaten gesammelt worden sein müssen. Dies ist vor allem dann sinnvoll, wenn der Senat sich nicht selbst dazu bereiterklärt, ein weitreichendes Gesetz zu verabschieden.
+    detail: Um einen Antrag auf ein Volksbegehren stellen zu können, müssen der Senatsverwaltung mindestens 20.000 gültige Unterschriften wahlberechtigter BerlinerInnen vorgelegt werden, die innerhalb eines Zeitraums von sechs Monaten gesammelt worden sein müssen. Dies ist vor allem dann sinnvoll, wenn der Senat sich nicht selbst dazu bereiterklärt, ein weitreichendes Gesetz zu verabschieden.
   date:
     detail: 2019
   icon: fa-plus-square
@@ -35,7 +35,7 @@
 - name:
     detail: Volksbegehren für ein Transparenzgesetz
   desc:
-    detail: Innerhalb von vier Monaten müssen mehr als 170.000 Berlinerinnen ihre Unterschrift für das Volksbegehren abgeben.
+    detail: Innerhalb von vier Monaten müssen mehr als 170.000 BerlinerInnen ihre Unterschrift für das Volksbegehren abgeben.
   date:
     detail: ab Frühjahr 2021
   icon: fa-plus-square
