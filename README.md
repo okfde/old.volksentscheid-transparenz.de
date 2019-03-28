@@ -13,7 +13,7 @@ Then clone this repository by invoking the following in a terminal,
 presuming you know how to get there:
 
 ```bash
-git clone https://github.com/okfde/volksentscheid-transparenz.de.git
+git clone https://github.com/okfde/old.volksentscheid-transparenz.de.git
 ```
 Install Ruby and gem. Then get the dependencies:
 
