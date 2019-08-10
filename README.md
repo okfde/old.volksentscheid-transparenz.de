@@ -1,6 +1,8 @@
 
 # Repo of outdated old.volksentscheid-transparenz.de
 
+New Repo: <https://github.com/okfde/volksentscheid-transparenz.de>
+
 
 ## Setup
 
